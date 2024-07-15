@@ -224,6 +224,7 @@ def main(cookie, usrId):
 if __name__ == '__main__':
     username = os.environ.get('username')
     password = os.environ.get('password')
+    print(username, password)
     cookie, sys_userId = login(username, password)
     main(cookie, sys_userId)
 
