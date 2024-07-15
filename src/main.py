@@ -221,10 +221,25 @@ def main(cookie, usrId):
         else:
             print('今天已经提交过了。')
 
+def ServerPush(sendkey,content):
+    api = f"https://sc.ftqq.com/{sendkey}.send"
+    title = u"每周工时填报"
+    data = {
+        "text": title,
+        "desp": content
+    }
+    print(content)
+    requests.post(api, data=data)
+    
+
+
+
 if __name__ == '__main__':
     username = os.environ['username']
     password = os.environ['password']
+    sendkey = os.environ['sendkey']
     print(username, password)
     cookie, sys_userId = login(username, password)
     main(cookie, sys_userId)
+    ServerPush(sendkey,"工时填报完成~")
 

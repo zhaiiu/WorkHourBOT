@@ -20,5 +20,6 @@ jobs:
         env:
             username: ${{ secrets.USERNAME }}
             password: ${{ secrets.PASSWORD }}
+            sendkey: ${{ secrets.SENDKEY }}
         run: python src/main.py
       
