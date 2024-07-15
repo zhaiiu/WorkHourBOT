@@ -67,7 +67,7 @@ def addMemberTimesReport(cookie,data):
     }
 
     # 发送POST请求，并包括Cookie
-    response = requests.post(url, data=data, headers=headers,cookies=cookie)
+    response = requests.post(url, data=data, headers=headers)
 
     # 检查响应
     data = json.loads(response.text)['resultInfo']['statusText']
