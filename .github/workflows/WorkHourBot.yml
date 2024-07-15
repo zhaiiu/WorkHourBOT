@@ -1,4 +1,4 @@
-name: Your Github Workflow name
+name: WorkHourBOT
 on:
   workflow_dispatch:
   schedule:
