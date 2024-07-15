@@ -2,6 +2,7 @@ import requests
 import json
 import re
 import time
+from time import sleep
 from datetime import datetime, timedelta
 import os
 
@@ -186,9 +187,9 @@ def last_report_date(cookie, usrId):
 def main(cookie, usrId):
 
     project_id = last_project(cookie, usrId)
-
+    sleep(1)
     independence_submit(cookie,usrId, project_id)
-
+    sleep(1)
     data = {
                 'start_date': '',
                 'end_date': '',
@@ -203,8 +204,9 @@ def main(cookie, usrId):
     data['project_id'] = project_id
 
     last_rpt_date = last_report_date(cookie, usrId)[0]
+    sleep(1)
     last_rpt_time = last_report_date(cookie, usrId)[1]
-
+    sleep(1)
     last_monday = (datetime.now() - timedelta(days=datetime.now().weekday())).strftime('%Y-%m-%d')
 
     today = datetime.now().strftime('%Y-%m-%d')
