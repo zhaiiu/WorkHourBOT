@@ -19,6 +19,6 @@ jobs:
       - name: CheckOutSome
         env:
             username: ${{ secrets.USERNAME }}
-            passward: ${{ secrets.PASSWORD }}
+            password: ${{ secrets.PASSWORD }}
         run: python src/main.py
       

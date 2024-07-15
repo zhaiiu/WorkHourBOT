@@ -222,8 +222,8 @@ def main(cookie, usrId):
             print('今天已经提交过了。')
 
 if __name__ == '__main__':
-    username = os.environ.get('USERNAME')
-    password = os.environ.get('PASSWORD')
+    username = os.environ.get('username')
+    password = os.environ.get('password')
     print(username, password)
     cookie, sys_userId = login(username, password)
     main(cookie, sys_userId)
