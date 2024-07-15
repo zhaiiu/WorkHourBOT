@@ -96,7 +96,7 @@ def last_project(cookie, usrId):
     print("最新的项目：",data['data'][-1])
     return data['data'][-1]['value']
 
-def last_project(cookie, usrId):
+def last_project_name(cookie, usrId):
 
     # 设置目标URL和要发送的数据
     url = 'https://pm.bdo.com.cn/AuditSystem/projectsystem/Combo.findProjectByUser2Years.json'  # 
@@ -116,7 +116,7 @@ def last_project(cookie, usrId):
 
     data = json.loads(response.text)
     print("最新的项目：",data['data'][-1])
-    return data['data'][-1]
+    return data['data'][-1]['label']
 
 def independence_submit(cookie, usrId, project_Id):
 
@@ -265,11 +265,11 @@ if __name__ == '__main__':
     print(username, password)
     cookie, sys_userId = login(username, password)
     data = main(cookie, sys_userId)
-    last_project = last_project(cookie, sys_userId)
+    project_name = last_project_name(cookie, sys_userId)
     info = [
           f"{data['start_date']} {data['start_time']}-{data['end_date']} {data['end_time']} /n\
             工作类型:{data['work_type']} /n\
-            工作项目：{last_project}",
+            工作项目：{project_name}",
         ""
     ]
     ServerPush(sendkey,info)
