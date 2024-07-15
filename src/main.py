@@ -67,7 +67,7 @@ def addMemberTimesReport(cookie,data):
     }
 
     # 发送POST请求，并包括Cookie
-    response = requests.post(url, data=data, headers=headers)
+    response = requests.post(url, data=data, headers=headers,cookies=cookie)
 
     # 检查响应
     data = json.loads(response.text)['resultInfo']['statusText']
@@ -276,8 +276,8 @@ if __name__ == '__main__':
     project_name = last_project_name(cookie, sys_userId)
     sleep(1)
     info = [
-          f"{data['start_date']} {data['start_time']}-{data['end_date']} {data['end_time']} /n\
-            工作类型:{data['work_type']} /n\
+          f"{data['start_date']} {data['start_time']}-{data['end_date']} {data['end_time']} \n \
+            工作类型:{data['work_type']} \n \
             工作项目：{project_name}",
         ""
     ]
