@@ -115,7 +115,7 @@ def last_project_name(cookie, usrId):
         'limit': 1000
     }
     # 发送Get请求，并包括Cookie
-    response = requests.get(url, data=data, headers=headers, timeout=5)
+    response = requests.get(url, data=data, headers=headers)
 
     data = json.loads(response.text)
     print("最新的项目：",data['data'][-1])
@@ -135,7 +135,7 @@ def independence_submit(cookie, usrId, project_Id):
     'param2': usrId,    # usrId
     'menuId': 10000668 
     }
-    response = requests.post(findIndependence_url, data=findIndependence_data, headers=headers, timeout=5)
+    response = requests.post(findIndependence_url, data=findIndependence_data, headers=headers)
     if 'independenceId' in json.loads(response.text)['data'][0]:
         independence_Id = json.loads(response.text)['data'][0]['independenceId']
         saveOrSubmit_data = {
@@ -144,7 +144,7 @@ def independence_submit(cookie, usrId, project_Id):
         'jsonData': {},
         'menuId': 10000668
         }
-        response = requests.post(saveOrSubmit_url, data=saveOrSubmit_data, headers=headers, timeout=5)
+        response = requests.post(saveOrSubmit_url, data=saveOrSubmit_data, headers=headers)
         print(response.text)
         print('当前项目的独立性声明提交成功。')
     else:
@@ -166,7 +166,7 @@ def last_report_date(cookie, usrId):
         'limit': 99999
     }
     url = 'https://pm.bdo.com.cn/AuditSystem/projectsystem/General.json?_dc={_dc}&menuId={menuId}&sqlId={sqlId}&param1={param1}&param2={param2}&param3={param3}&page={page}&start={start}&limit={limit}'.format(**data)
-    response = requests.get(url, headers=headers, timeout=5)
+    response = requests.get(url, headers=headers)
 
     # 打印最近的上报工时记录
     # print(json.loads(response.text)['data'][-1])
