@@ -49,7 +49,8 @@ def addMemberTimesReport(cookie,data):
     # 设置目标URL和要发送的数据
     url = 'https://pm.bdo.com.cn/AuditSystem/projectsystem/MemberSchedule.addMemberTimesReport.json'
 
-    headers = {'Cookie': cookie} 
+    headers = {'Cookie': cookie,
+               'User-Agent':"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"} 
 
     # POST数据，以字典形式提供
     data = {
@@ -79,7 +80,8 @@ def last_project(cookie, usrId):
     # 设置目标URL和要发送的数据
     url = 'https://pm.bdo.com.cn/AuditSystem/projectsystem/Combo.findProjectByUser2Years.json'  # 
 
-    headers = {'Cookie': cookie} 
+    headers = {'Cookie': cookie,
+               'User-Agent':"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"} 
 
     data = {
         '_dc': 1697276108491,
@@ -101,7 +103,8 @@ def last_project_name(cookie, usrId):
     # 设置目标URL和要发送的数据
     url = 'https://pm.bdo.com.cn/AuditSystem/projectsystem/Combo.findProjectByUser2Years.json'  # 
 
-    headers = {'Cookie': cookie} 
+    headers = {'Cookie': cookie,
+               'User-Agent':"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"} 
 
     data = {
         '_dc': 1697276108491,
@@ -120,7 +123,8 @@ def last_project_name(cookie, usrId):
 
 def independence_submit(cookie, usrId, project_Id):
 
-    headers = {'Cookie': cookie} 
+    headers = {'Cookie': cookie,
+               'User-Agent':"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"} 
 
     findIndependence_url = 'https://pm.bdo.com.cn/AuditSystem/projectsystem/Independence.findIndependence.json'
 
@@ -148,7 +152,8 @@ def independence_submit(cookie, usrId, project_Id):
 
 def last_report_date(cookie, usrId):
 
-    headers = { 'Cookie': cookie}
+    headers = { 'Cookie': cookie,
+               'User-Agent':"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"}
     data = {
         '_dc': time.time(), # 时间戳
         'menuId': '10000668',
