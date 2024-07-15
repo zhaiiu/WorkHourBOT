@@ -96,6 +96,28 @@ def last_project(cookie, usrId):
     print("最新的项目：",data['data'][-1])
     return data['data'][-1]['value']
 
+def last_project(cookie, usrId):
+
+    # 设置目标URL和要发送的数据
+    url = 'https://pm.bdo.com.cn/AuditSystem/projectsystem/Combo.findProjectByUser2Years.json'  # 
+
+    headers = {'Cookie': cookie} 
+
+    data = {
+        '_dc': 1697276108491,
+        'blank': 0,
+        'param1': usrId,
+        'page': 1,
+        'start': 0,
+        'limit': 1000
+    }
+    # 发送Get请求，并包括Cookie
+    response = requests.get(url,data=data, headers=headers)
+
+    data = json.loads(response.text)
+    print("最新的项目：",data['data'][-1])
+    return data['data'][-1]
+
 def independence_submit(cookie, usrId, project_Id):
 
     headers = {'Cookie': cookie} 
@@ -220,10 +242,12 @@ def main(cookie, usrId):
         
         else:
             print('今天已经提交过了。')
+    return data
 
-def ServerPush(sendkey,content):
+def ServerPush(sendkey,info):
+    title,content = info
     api = f"https://sc.ftqq.com/{sendkey}.send"
-    title = u"每周工时填报"
+    title = "每周工时填报"
     data = {
         "text": title,
         "desp": content
@@ -240,6 +264,13 @@ if __name__ == '__main__':
     sendkey = os.environ['sendkey']
     print(username, password)
     cookie, sys_userId = login(username, password)
-    main(cookie, sys_userId)
-    ServerPush(sendkey,"工时填报完成~")
+    data = main(cookie, sys_userId)
+    last_project = last_project(cookie, sys_userId)
+    info = [
+          f"{data['start_date']} {data['start_time']}-{data['end_date']} {data['end_time']} /n\
+            工作类型:{data['work_type']} /n\
+            工作项目：{last_project}",
+        ""
+    ]
+    ServerPush(sendkey,info)
 
