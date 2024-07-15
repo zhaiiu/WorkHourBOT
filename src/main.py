@@ -252,7 +252,6 @@ def main(cookie, usrId):
 def ServerPush(sendkey,info):
     title,content = info
     api = f"https://sc.ftqq.com/{sendkey}.send"
-    title = "每周工时填报"
     data = {
         "text": title,
         "desp": content
