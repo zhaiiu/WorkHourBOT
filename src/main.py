@@ -276,10 +276,10 @@ if __name__ == '__main__':
     project_name = last_project_name(cookie, sys_userId)
     sleep(1)
     info = [
+            "每周工时申报",
           f"{data['start_date']} {data['start_time']}-{data['end_date']} {data['end_time']} \n \
             工作类型:{data['work_type']} \n \
-            工作项目：{project_name}",
-        ""
+            工作项目：{project_name}"
     ]
     ServerPush(sendkey,info)
 
