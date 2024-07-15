@@ -270,8 +270,11 @@ if __name__ == '__main__':
     sendkey = os.environ['sendkey']
     print(username, password)
     cookie, sys_userId = login(username, password)
+    sleep(1)
     data = main(cookie, sys_userId)
+    sleep(1)
     project_name = last_project_name(cookie, sys_userId)
+    sleep(1)
     info = [
           f"{data['start_date']} {data['start_time']}-{data['end_date']} {data['end_time']} /n\
             工作类型:{data['work_type']} /n\
